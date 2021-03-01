@@ -16,7 +16,7 @@ namespace EncapsulationPaintballGun
                 Console.WriteLine("You have pressed: " + key);
                 if (key == ' ') Console.WriteLine($"Shooting returned {gun.Shoot()}");
                 else if (key == 'r') gun.Reload();
-                else if (key == '+') gun.PaintBalls += PaintballGun.MAGAZINE_SIZE;
+                else if (key == '+') gun.PaintBalls += gun.MagazineSize;
                 else if (key == 'q') return;
             }
         }

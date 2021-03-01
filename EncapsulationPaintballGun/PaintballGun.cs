@@ -6,7 +6,7 @@ namespace EncapsulationPaintballGun
 {
     class PaintballGun
     {
-        public const int MAGAZINE_SIZE = 16;
+        //public const int MAGAZINE_SIZE = 16;
 
         private int paintBalls = 0;
         //private int paintBallsLoaded = 0;
@@ -24,8 +24,10 @@ namespace EncapsulationPaintballGun
          *     set { paintBallsLoaded = value; }
          * }*/
 
-        public int PaintBallsLoaded { get; set; }
+        public int PaintBallsLoaded { get; private set; }
         public bool IsEmpty() { return PaintBallsLoaded == 0; }
+
+        public int MagazineSize { get; private set; } = 16;
 
         /*public int GetPaintBalls() { return paintBalls; }
 
@@ -68,8 +70,8 @@ namespace EncapsulationPaintballGun
         public void Reload()
         {
             Console.WriteLine("Reloading ...");
-            if (paintBalls > MAGAZINE_SIZE)
-                PaintBallsLoaded = MAGAZINE_SIZE;
+            if (paintBalls > MagazineSize)
+                PaintBallsLoaded = MagazineSize;
             else
                 PaintBallsLoaded = paintBalls;
         }
