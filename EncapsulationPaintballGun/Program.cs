@@ -9,7 +9,7 @@ namespace EncapsulationPaintballGun
             PaintballGun gun = new PaintballGun();
             while (true)
             {
-                Console.WriteLine($"{gun.PaintBalls} paint balls, {gun.GetPaintBallsLoaded()} loaded");
+                Console.WriteLine($"{gun.PaintBalls} paint balls, {gun.PaintBallsLoaded} loaded");
                 if (gun.IsEmpty()) Console.WriteLine("WARNING: You are out of ammo!!!");
                 Console.WriteLine("Press space bar to shoot, r to reload, + to add ammo and q to quit.");
                 char key = Console.ReadKey(true).KeyChar;

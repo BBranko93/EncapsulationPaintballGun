@@ -9,14 +9,23 @@ namespace EncapsulationPaintballGun
         public const int MAGAZINE_SIZE = 16;
 
         private int paintBalls = 0;
-        private int paintBallsLoaded = 0;
+        //private int paintBallsLoaded = 0;
 
         /* When the game needs to display the number of balls left 
          * and the number of balls loaded in the UI, 
          * it can call GetPaintBalls and GetPaintBallsLoaded methods.*/
-        public int GetPaintBallsLoaded() { return paintBallsLoaded; }
 
-        public bool IsEmpty() { return paintBallsLoaded == 0; }
+        /* This property uses private backing field.
+         * Its getter returns the value in the field,
+         * and its setter updates the field.
+         * public int PaintBallsLoaded
+         * {
+         *     get { return paintBallsLoaded; }
+         *     set { paintBallsLoaded = value; }
+         * }*/
+
+        public int PaintBallsLoaded { get; set; }
+        public bool IsEmpty() { return PaintBallsLoaded == 0; }
 
         /*public int GetPaintBalls() { return paintBalls; }
 
@@ -60,17 +69,17 @@ namespace EncapsulationPaintballGun
         {
             Console.WriteLine("Reloading ...");
             if (paintBalls > MAGAZINE_SIZE)
-                paintBallsLoaded = MAGAZINE_SIZE;
+                PaintBallsLoaded = MAGAZINE_SIZE;
             else
-                paintBallsLoaded = paintBalls;
+                PaintBallsLoaded = paintBalls;
         }
 
         /* The Shoot method returns true and decrements the balls
          * field if the fun is loaded, or false if it isn't.*/
         public bool Shoot()
         {
-            if (paintBallsLoaded == 0) return false;
-            paintBallsLoaded--;
+            if (PaintBallsLoaded == 0) return false;
+            PaintBallsLoaded--;
              paintBalls--;
             return true;
         }
